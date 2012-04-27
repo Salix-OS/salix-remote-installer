@@ -113,7 +113,7 @@ die ()
 check_ram ()
 {
     # RAM should be at least >= 1Go (978284)
-    RAM="978283"
+    RAM="977260"
     RAMSIZE=$(free | awk '/^Mem:/{print $2}')
     [ $RAMSIZE > $RAM ] || die \
         "RAM size: $RAMSIZE not enough to run this script safely, aborting." 
