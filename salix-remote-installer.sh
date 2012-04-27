@@ -289,6 +289,7 @@ install_salix ()
     # launch the installation
     echo "Installation will begin shortly."
     echo "Choose to install from a pre-mounted dir and specify the /salix dir."
+    read JUNK
     chroot . /etc/rc.d/rc.S
     # if end of installation
     chroot . /sbin/umount -a
