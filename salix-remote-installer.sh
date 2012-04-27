@@ -7,8 +7,8 @@
 # You don't have to boot the installer, all is done in a tmpfs dir.
 # (useful on a online server)
 #
-# Authors: Cyrille Pontvieux <JRD~AT~salixos~dot~org>
-#          Frédéric Galusik <fredg~AT~salixos~dot~org>
+# Authors: Frédéric Galusik <fredg~AT~salixos~dot~org>
+#          Cyrille Pontvieux <JRD~AT~salixos~dot~org>
 #
 # Redistribution and use in source and binary forms are permitted
 # provided that the above copyright notice and this paragraph are
