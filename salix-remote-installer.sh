@@ -40,8 +40,8 @@ FLUXBOX="salix-fluxbox-${REL}.iso"
 FLUXBOX64="salix64-fluxbox-${REL}.iso"
 RATPOISON="salix-ratpoison-${REL}.iso"
 RATPOISON64="salix64-ratpoison-${REL}.iso"
-MATE="salix-mate-${REL}beta1.iso"
-MATE64="salix64-mate-${REL}beta1.iso"
+MATE="salix-mate-${REL}RC1.iso"
+MATE64="salix64-mate-${REL}RC1.iso"
 
 #
 # MD5SUM
@@ -56,8 +56,8 @@ FLUXBOXSUM='c39e2cb4eed3a9bc62658ec531a14163'
 FLUXBOX64SUM='af41371664e85473d82acfe8e1376812'
 RATPOISONSUM='c65f40822a6ad087e649b5623f7bf33e'
 RATPOISON64SUM='0c41e72c19ae4e2df4778315e1b1006d'
-MATESUM='32cdd2a8f037ebe0bb24d237f564998a'
-MATE64SUM='7ad0e8574dbd918490e1707df29146ab'
+MATESUM='98a3b49a0cbd90a4b1955c9c542247f0'
+MATE64SUM='6ca304f7831255b297c5e808e78525cb'
 
 #
 # Check if we have all that is needed
