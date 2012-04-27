@@ -309,7 +309,7 @@ main ()
     choose_iso
     download_iso
     check_integrity
-    install_salix
+    install_salix "s@"
 }
-main
+main "s@"
 
