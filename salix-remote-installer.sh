@@ -20,7 +20,7 @@ export LANG=C
 #
 # Release
 #
-REL="13.37"
+REL='13.37'
 
 #
 # SourceForge base url
@@ -46,18 +46,18 @@ MATE64="salix64-mate-${REL}beta1.iso"
 #
 # MD5SUM
 #
-XFCESUM="8a2b0c31803913e50e45b5c829564e9b"
-XFCE64SUM="872a3f85595c8ceca017f798dc89aaf6"
-KDESUM="c6f68f018c77d8ce159dcc2ca5670f6e"
-KDE64SUM="dbadbf6251dbede98ba78510aef0aa5b"
-LXDESUM="34741338167ad5dcbfe6a8257b4177aa"
-LXDE64SUM="0415b596893dac5ec2dc56160a2f5b69"
-FLUXBOXSUM="c39e2cb4eed3a9bc62658ec531a14163"
-FLUXBOX64SUM="af41371664e85473d82acfe8e1376812"
-RATPOISONSUM="c65f40822a6ad087e649b5623f7bf33e"
-RATPOISON64SUM="0c41e72c19ae4e2df4778315e1b1006d"
-MATESUM="32cdd2a8f037ebe0bb24d237f564998a"
-MATE64SUM="7ad0e8574dbd918490e1707df29146ab"
+XFCESUM='8a2b0c31803913e50e45b5c829564e9b'
+XFCE64SUM='72a3f85595c8ceca017f798dc89aaf6'
+KDESUM='c6f68f018c77d8ce159dcc2ca5670f6e'
+KDE64SUM='dbadbf6251dbede98ba78510aef0aa5b'
+LXDESUM='34741338167ad5dcbfe6a8257b4177aa'
+LXDE64SUM='0415b596893dac5ec2dc56160a2f5b69'
+FLUXBOXSUM='c39e2cb4eed3a9bc62658ec531a14163'
+FLUXBOX64SUM='af41371664e85473d82acfe8e1376812'
+RATPOISONSUM='c65f40822a6ad087e649b5623f7bf33e'
+RATPOISON64SUM='0c41e72c19ae4e2df4778315e1b1006d'
+MATESUM='32cdd2a8f037ebe0bb24d237f564998a'
+MATE64SUM='7ad0e8574dbd918490e1707df29146ab'
 
 #
 # Check if we have all that is needed
@@ -96,6 +96,10 @@ check_softs ()
         echo "Please install awk first"
         exit 2
     fi
+    if ! md5sum --version > /dev/null; then
+        echo "Please install awk first"
+        exit 2
+    fi
 }
 
 #
@@ -113,7 +117,7 @@ die ()
 check_ram ()
 {
     # RAM should be at least >= 1Go (978284)
-    RAM="977260"
+    RAM='977260'
     RAMSIZE=$(free | awk '/^Mem:/{print $2}')
     [ $RAMSIZE > $RAM ] || die \
         "RAM size: $RAMSIZE not enough to run this script safely, aborting." 
@@ -284,7 +288,7 @@ install_salix ()
         ' etc/rc.d/rc.S
     # launch the installation
     echo "Installation will begin shortly."
-    echo "Choose to install from the disk and specify the /salix dir."
+    echo "Choose to install from a pre-mounted dir and specify the /salix dir."
     chroot . /etc/rc.d/rc.S
     # if end of installation
     chroot . /sbin/umount -a
