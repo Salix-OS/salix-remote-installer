@@ -47,7 +47,7 @@ MATE64="salix64-mate-${REL}RC1.iso"
 # MD5SUM
 #
 XFCESUM='8a2b0c31803913e50e45b5c829564e9b'
-XFCE64SUM='72a3f85595c8ceca017f798dc89aaf6'
+XFCE64SUM='872a3f85595c8ceca017f798dc89aaf6'
 KDESUM='c6f68f018c77d8ce159dcc2ca5670f6e'
 KDE64SUM='dbadbf6251dbede98ba78510aef0aa5b'
 LXDESUM='34741338167ad5dcbfe6a8257b4177aa'
@@ -70,7 +70,7 @@ check_root ()
     fi
 }
 
-check_softs () 
+check_softs ()
 {
     if ! wget --version > /dev/null; then
         echo "Please install wget first"
@@ -120,7 +120,7 @@ check_ram ()
     RAM='977260'
     RAMSIZE=$(free | awk '/^Mem:/{print $2}')
     [ $RAMSIZE > $RAM ] || die \
-        "RAM size: $RAMSIZE not enough to run this script safely, aborting." 
+        "RAM size: $RAMSIZE not enough to run this script safely, aborting."
     echo
     echo "RAM size checked (>= 1GB): $RAMSIZE KB"
     echo "RAM size: OK"
@@ -216,7 +216,7 @@ download_iso ()
     SIZE=$(wget --spider $DURL 2>&1 | awk '/^Length:/{print $2}')
     # tmp dir size is ISO size + 100MB (50 is too short)
     tmp=$(mktemp -d)
-    TMPSIZE=$(($SIZE + 100 * 1024 * 1024))  
+    TMPSIZE=$(($SIZE + 100 * 1024 * 1024))
     echo "Switching to the tmp dir."
     mount -t tmpfs -o size=$TMPSIZE none $tmp
     cd $tmp
