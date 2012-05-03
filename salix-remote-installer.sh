@@ -97,7 +97,7 @@ check_softs ()
         exit 2
     fi
     if ! md5sum --version > /dev/null; then
-        echo "Please install awk first"
+        echo "Please install md5sum first"
         exit 2
     fi
 }
@@ -201,8 +201,8 @@ choose_iso ()
          *)
             die "You should have choosen between 1-12, aborting..."
     esac
-    read -p "You have choosen to download $ISO, (y)es/(n)o ?"
-    [ "$REPLY" == "y" ] || die "Aborting..."
+    echo -n "You have choosen to download $ISO, (y)es/(n)o ?"; read REPLY
+    [ "$REPLY" = "y" ] || die "Aborting..."
 }
 
 #
@@ -230,6 +230,9 @@ check_integrity ()
     if [ "$CHECK" = "$ISOSUM" ]; then
        echo "Check: OK"
     else
+       cd ..
+       umount $tmp
+       rmdir $tmp
        die "The ISO file is corrupted, aborting."
     fi
 }
@@ -241,7 +244,7 @@ install_salix ()
 {
     mkdir iso-loop initrd-loop
     # loop-mount it
-    mount -o ro salix.iso iso-loop
+    mount -o ro,loop salix.iso iso-loop
 
     # more checks
     echo "Mounting ISO..."
@@ -266,7 +269,7 @@ install_salix ()
     zcat iso-loop/isolinux/initrd.img > initrd
     cd initrd-loop
     cpio -i < ../initrd
-    # ISO avaiable from withing initrd: specify /salix in the installer, using "from disk"
+    # ISO content available within the initrd: specify /salix in the installer, using "from disk"
     mkdir salix
     mount -o bind ../iso-loop salix
     mount -t proc none proc
@@ -287,8 +290,8 @@ install_salix ()
         s:^\(.*rc\.dropbear.*\):#\1:;
         ' etc/rc.d/rc.S
     # launch the installation
-    echo "Installation will begin shortly."
-    echo "Choose to install from a pre-mounted dir and specify the /salix dir."
+    echo "Installation will begin once you press <Enter>."
+    echo "Select the installation from a pre-mounted dir and specify /salix directory.."
     read JUNK
     chroot . /etc/rc.d/rc.S
     # if end of installation
