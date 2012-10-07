@@ -25,7 +25,7 @@ REL='13.37'
 #
 # SourceForge base url
 #
-BURL="http://sourceforge.net/projects/salix/files/${REL}"
+BURL="http://sourceforge.net/projects/salix/files"
 
 #
 # Salix flavors
@@ -211,7 +211,7 @@ choose_iso ()
 download_iso ()
 {
     # DOWNLOAD URL
-    DURL="${BURL}/${ISO}/download"
+    DURL="${BURL}/${ISO}"
     # get the ISO size
     SIZE=$(wget --spider $DURL 2>&1 | awk '/^Length:/{print $2}')
     # tmp dir size is ISO size + 100MB (50 is too short)
