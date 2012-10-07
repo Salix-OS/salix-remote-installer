@@ -216,7 +216,7 @@ download_iso ()
     SIZE=$(wget --spider $DURL 2>&1 | awk '/^Length:/{print $2}')
     # tmp dir size is ISO size + 100MB (50 is too short)
     tmp=$(mktemp -d)
-    TMPSIZE=$(($SIZE + 100 * 1024 * 1024))
+    TMPSIZE=$(($SIZE + 700 * 1024 * 1024))
     echo "Switching to the tmp dir."
     mount -t tmpfs -o size=$TMPSIZE none $tmp
     cd $tmp
