@@ -92,7 +92,7 @@ check_softs ()
         echo "Please install grep first"
         exit 2
     fi
-    if ! awk --version > /dev/null; then
+    if ! awk -W version > /dev/null; then
         echo "Please install awk first"
         exit 2
     fi
